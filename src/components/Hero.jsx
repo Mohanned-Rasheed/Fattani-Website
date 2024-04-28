@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image1 from "../assets/background image.png";
 import Image2 from "../assets/fattani-Logo.png";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
@@ -8,6 +8,10 @@ function Hero() {
     { img: Image1, Headr: "Fattani Company", SubHeader: "slide 1" },
     { img: Image2, Headr: "Fattani Company", SubHeader: "slide 2" },
   ];
+
+  setTimeout(() => {
+    nextSlide();
+  }, 7000);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
