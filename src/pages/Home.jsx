@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import TextBlock from "../components/TextBlock";
+import OurPartners from "../components/OurPartners";
 import {
   commitmentIcon,
   clientIcon,
@@ -8,6 +9,8 @@ import {
   service2Icon,
   service3Icon,
 } from "../util/icons";
+import Contact from "../components/Contact";
+
 function Home() {
   return (
     <>
@@ -40,7 +43,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       {/* services section */}
       <section>
         <div className="max-w-7xl mx-auto mt-14 flex flex-col">
@@ -68,6 +70,8 @@ function Home() {
           </div>
         </div>
       </section>
+      <OurPartners />
+      <Contact />
     </>
   );
 }

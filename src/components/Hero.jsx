@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image1 from "../assets/background.jpg";
-import Image2 from "../assets/fattani-Logo.png";
+import Image2 from "../assets/FattaniBG.png";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 function Hero() {
@@ -12,12 +12,12 @@ function Hero() {
       subHeader2:
         "We offer a comprehensive range of services to companies and institutions of all kinds.",
     },
-    // { img: Image2, Header: "Fattani Company", SubHeader: "slide 2" },
+    { img: Image2, Header: "Fattani Company", SubHeader: "slide 2" },
   ];
 
-  setTimeout(() => {
-    nextSlide();
-  }, 7000);
+  // setInterval(() => {
+  //   nextSlide();
+  // }, 7000);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -43,20 +43,23 @@ function Hero() {
         className="w-full h-120 relative pt-20"
         style={{
           backgroundImage: `url(${slides[currentIndex].img})`,
-          backgroundSize: "",
+          backgroundSize: "100%",
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto max-w-7xl  border-white text-white ">
+        <div className="mx-auto max-w-7xl border-white text-white ">
           <div className="flex flex-col space-y-4 mt-24 ">
             <div className="text-6xl">{slides[currentIndex].header}</div>
-            <div className="text-4xl">{slides[currentIndex].subHeader1}</div>
-            <div className="text-xl">{slides[currentIndex].subHeader2}</div>
-      
+            <div className="text-4xl opacity-80">
+              {slides[currentIndex].subHeader1}
+            </div>
+            <div className="text-xl opacity-80">
+              {slides[currentIndex].subHeader2}
+            </div>
           </div>
           <button className="mt-10 bg-gold hover:bg-darkerGold text-white font-bold py-2 px-4 rounded">
-              Request for Quotation
-            </button>
+            Request for Quotation
+          </button>
         </div>
 
         <div
