@@ -8,8 +8,8 @@ function App() {
       element: <Root />,
       children: [
         { index: true, element: <Home /> },
-        { path: "/about-us", element: <div>About us</div> },
-        { path: "/services", element: <div /> },
+        { path: "about", element: <div>About us</div> },
+        { path: "services", element: <div /> },
         { path: "contact", element: <div /> },
       ],
     },
