@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import TextBlock from "../components/TextBlock";
-import OurPartners from "../components/OurPartners";
+import PartnersSection from "../components/PartnersSection";
 import {
   commitmentIcon,
   clientIcon,
@@ -9,7 +9,7 @@ import {
   service2Icon,
   service3Icon,
 } from "../util/icons";
-import Contact from "../components/Contact";
+import ContactCard from "../components/ContactCard";
 
 function Home() {
   return (
@@ -70,8 +70,8 @@ function Home() {
           </div>
         </div>
       </section>
-      <OurPartners />
-      <Contact />
+      <PartnersSection />
+      <ContactCard />
     </>
   );
 }

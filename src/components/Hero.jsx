@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import Image1 from "../assets/background.jpg";
-import Image2 from "../assets/FattaniBG.png";
+import Image2 from "../assets/background-2.png";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+const slides = [
+  {
+    img: Image1,
+    header: "FATTANI & Co",
+    subHeader1: "Chartered accountants and auditors",
+    subHeader2:
+      "We offer a comprehensive range of services to companies and institutions of all kinds.",
+  },
+  {
+    img: Image2,
+    header: "FATTANI & Co",
+    subHeader1: "Chartered accountants and auditors",
+    subHeader2:
+      "We provide a range of outsourced services, so you can keep your focus on growing your business.",
+  },
+];
+
 function Hero() {
-  const slides = [
-    {
-      img: Image1,
-      header: "FATTANI & Co",
-      subHeader1: "Chartered accountants and auditors",
-      subHeader2:
-        "We offer a comprehensive range of services to companies and institutions of all kinds.",
-    },
-    { img: Image2, Header: "Fattani Company", SubHeader: "slide 2" },
-  ];
-
-  // setInterval(() => {
-  //   nextSlide();
-  // }, 7000);
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -27,25 +30,40 @@ function Hero() {
     setCurrentIndex(newIndex);
   };
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  };
+  }, [currentIndex]);
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 7000);
+    //Clear interval when the component unmount
+    return () => {
+      clearInterval(timer);
+    };
+  }, [currentIndex, nextSlide]);
+
   return (
     <>
-      <div
+      <motion.div
+        key={currentIndex}
         className="w-full h-120 relative pt-20"
         style={{
-          backgroundImage: `url(${slides[currentIndex].img})`,
-          backgroundSize: "100%",
-          backgroundPosition: "center",
+          // backgroundImage: `url(${slides[currentIndex].img})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${slides[currentIndex].img})`,
+          backgroundSize: "cover",
+          backgroundPosition: "100% 40%",
         }}
+        initial={{ opacity: 0.6, x: 75 }} 
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
       >
         <div className="mx-auto max-w-7xl border-white text-white ">
           <div className="flex flex-col space-y-4 mt-24 ">
@@ -57,9 +75,17 @@ function Hero() {
               {slides[currentIndex].subHeader2}
             </div>
           </div>
-          <button className="mt-10 bg-gold hover:bg-darkerGold text-white font-bold py-2 px-4 rounded">
-            Request for Quotation
-          </button>
+          {currentIndex === 0 && (
+            <button className="mt-10 bg-gold hover:bg-darkerGold text-white font-bold py-2 px-4 rounded">
+              Request for Quotation
+            </button>
+          )}
+
+          {currentIndex === 1 && (
+            <button className="mt-10 bg-gold hover:bg-darkerGold text-white font-bold py-2 px-4 rounded">
+              View Our Services
+            </button>
+          )}
         </div>
 
         <div
@@ -84,7 +110,7 @@ function Hero() {
                   goToSlide(slideIndex);
                 }}
                 className={`text-2xl cursor-pointer ${
-                  slideIndex === currentIndex ? "text-gray-500" : "text-white"
+                  slideIndex === currentIndex ? "text-white" : "text-gray-500"
                 }`}
               >
                 <RxDotFilled size={25} />
@@ -92,7 +118,7 @@ function Hero() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       {/* <div className="  h-[670px] text-white w-full flex justify-center pt-10 pb-10">
         <div className=" w-[1200px] relative">

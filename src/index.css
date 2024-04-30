@@ -1,10 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* {
+/* * {
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
-    }
+    } */
+
+.nav-footer-hover {
+  @apply mx-1 group-hover:border-b-2 group-hover:border-gold;
+}

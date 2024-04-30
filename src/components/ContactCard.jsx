@@ -1,9 +1,8 @@
-import React from "react";
 import phone from "../assets/icons/icons8-phone-100.png";
 import mail from "../assets/icons/icons8-mail-100.png";
 import location from "../assets/icons/icons8-location-100.png";
 
-function Contact() {
+function ContactCard() {
   return (
     <>
       <div className="mt-32 py-12 rounded-3xl max-w-7xl sm:mx-12 md:mx-auto shadow-2xl h-auto bg-DarkPurple2 flex sm:flex-col md:flex-row">
@@ -32,4 +31,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactCard;

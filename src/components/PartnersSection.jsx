@@ -1,4 +1,4 @@
-import { React, useRef } from "react";
+import { useRef } from "react";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 import Saudi_National_Bank_Logo from "../assets/logos/Saudi_National_Bank_Logo.png";
 import chalhoub from "../assets/logos/chalhoub.png";
@@ -17,7 +17,7 @@ import iamge10 from "../assets/logos/مؤسسات سقالة.png";
 import image11 from "../assets/logos/موسم الرياض.png";
 import image12 from "../assets/logos/موسم-جدة.png";
 
-function OurPartners() {
+function PartnersSection() {
   const logos = [
     Saudi_National_Bank_Logo,
     chalhoub,
@@ -38,16 +38,34 @@ function OurPartners() {
   ];
   const scrollContainer = useRef(null);
   const scrollLeft = () => {
-    scrollContainer.current.scrollTo({
-      left: scrollContainer.current.scrollLeft - 400,
-      behavior: "smooth",
-    });
+    if (scrollContainer.current.scrollLeft === 0) {
+      scrollContainer.current.scrollTo({
+        left: scrollContainer.current.scrollWidth,
+        behavior: "smooth",
+      });
+    } else {
+      scrollContainer.current.scrollTo({
+        left: scrollContainer.current.scrollLeft - 400,
+        behavior: "smooth",
+      });
+    }
   };
   const scrollRight = () => {
-    scrollContainer.current.scrollTo({
-      left: scrollContainer.current.scrollLeft + 400,
-      behavior: "smooth",
-    });
+    if (
+      scrollContainer.current.scrollLeft +
+        scrollContainer.current.offsetWidth >=
+      scrollContainer.current.scrollWidth
+    ) {
+      scrollContainer.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    } else {
+      scrollContainer.current.scrollTo({
+        left: scrollContainer.current.scrollLeft + 400,
+        behavior: "smooth",
+      });
+    }
   };
   return (
     <>
@@ -67,12 +85,20 @@ function OurPartners() {
           />
           <div
             ref={scrollContainer}
-            style={{ scrollbarWidth: "none" }}
+            style={{
+              scrollbarWidth: "none",
+              WebkitUserSelect: "none", 
+              KhtmlUserSelect: "none",
+              MozUserSelect: "none", 
+              msUserSelect: "none", 
+              userSelect: "none", 
+            }}
             className="flex mt-10 pb-16 overflow-x-scroll hide-scrollbar sm:space-x-3 md:space-x-10 sm:mx-8 md:mx-20 w-auto"
           >
             {logos.map((logo, index) => {
               return (
                 <img
+                  key={index}
                   draggable={false}
                   className="md:h-16 sm:h-10"
                   src={logo}
@@ -91,4 +117,4 @@ function OurPartners() {
   );
 }
 
-export default OurPartners;
+export default PartnersSection;
