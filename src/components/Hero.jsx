@@ -61,7 +61,7 @@ function Hero() {
           backgroundSize: "cover",
           backgroundPosition: "100% 40%",
         }}
-        initial={{ opacity: 0.6, x: 75 }} 
+        initial={{ opacity: 0.6, x: 75 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >

@@ -81,26 +81,26 @@ function PartnersSection() {
           <BsChevronCompactLeft
             onClick={scrollLeft}
             size={40}
-            className="absolute sm:top-[58%] md:top-[56%] sm:left-0 md:left-5  cursor-pointer"
+            className="absolute top-[58%] md:top-[56%] left-0 md:left-5  cursor-pointer"
           />
           <div
             ref={scrollContainer}
             style={{
               scrollbarWidth: "none",
-              WebkitUserSelect: "none", 
+              WebkitUserSelect: "none",
               KhtmlUserSelect: "none",
-              MozUserSelect: "none", 
-              msUserSelect: "none", 
-              userSelect: "none", 
+              MozUserSelect: "none",
+              msUserSelect: "none",
+              userSelect: "none",
             }}
-            className="flex mt-10 pb-16 overflow-x-scroll hide-scrollbar sm:space-x-3 md:space-x-10 sm:mx-8 md:mx-20 w-auto"
+            className="flex mt-10 pb-16 overflow-x-scroll hide-scrollbar space-x-8 md:space-x-10 mx-8 md:mx-20 w-auto"
           >
             {logos.map((logo, index) => {
               return (
                 <img
                   key={index}
                   draggable={false}
-                  className="md:h-16 sm:h-10"
+                  className="md:h-16 h-10"
                   src={logo}
                 ></img>
               );
@@ -109,7 +109,7 @@ function PartnersSection() {
           <BsChevronCompactRight
             onClick={scrollRight}
             size={40}
-            className="absolute sm:top-[58%] md:top-[56%] sm:right-0 md:right-5 cursor-pointer "
+            className="absolute top-[58%] md:top-[56%] right-0 md:right-5 cursor-pointer "
           />
         </div>
       </div>
