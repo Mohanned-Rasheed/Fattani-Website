@@ -3,7 +3,7 @@ import smallLogo from "../assets/FATTANI-small-logo-transparent.png";
 
 const ObjectivesSection = () => {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto mt-20 mb-20">
         <div className="flex flex-col items-left">
           <h1 className="text-4xl font-bold text-DarkPurple2">
             Our Objectives

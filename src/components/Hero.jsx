@@ -57,15 +57,20 @@ function Hero() {
         className="w-full h-120 relative pt-20"
         style={{
           // backgroundImage: `url(${slides[currentIndex].img})`,
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${slides[currentIndex].img})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url(${slides[currentIndex].img})`,
           backgroundSize: "cover",
           backgroundPosition: "100%",
         }}
-        initial={{ opacity: 0.6, x: 75 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0.8 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="mx-auto max-w-7xl border-white text-white ">
+        <motion.div
+          initial={{ opacity: 0, y: 75 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mx-auto max-w-7xl border-white text-white "
+        >
           <div className="flex flex-col space-y-4 mt-24 ">
             <div className="text-6xl">{slides[currentIndex].header}</div>
             <div className="text-4xl opacity-80">
@@ -86,7 +91,7 @@ function Hero() {
               View Our Services
             </button>
           )}
-        </div>
+        </motion.div>
 
         <div
           onClick={nextSlide}
