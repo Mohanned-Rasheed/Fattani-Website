@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import transparentLogo from "../assets/FATTANI-logo-transparent.png";
 function Header() {
   return (
-    <header className="bg-DarkPurple container max-w-full mx-auto px-6 py-4 pt-6">
+    <header className="bg-DarkPurple container max-w-full mx-auto px-6 pb-4">
       <nav className="flex items-center justify-between font-semibold text-white text-lg mx-12 lg:text-xl lg:mx-32">
         <Link to="/">
           <img

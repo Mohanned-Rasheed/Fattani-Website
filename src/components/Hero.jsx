@@ -59,7 +59,7 @@ function Hero() {
           // backgroundImage: `url(${slides[currentIndex].img})`,
           backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${slides[currentIndex].img})`,
           backgroundSize: "cover",
-          backgroundPosition: "100% 40%",
+          backgroundPosition: "100%",
         }}
         initial={{ opacity: 0.6, x: 75 }}
         animate={{ opacity: 1, x: 0 }}
